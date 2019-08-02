@@ -1,0 +1,26 @@
+$sidebar-width: 240px;
+
+:host {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+}
+
+.sidebar {
+  width: $sidebar-width;
+  background-image: linear-gradient(180deg, #222222 23%, #0C0C0C 100%);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+app-album-list {
+  flex-grow: 1;
+}
+
+.sidebar__cover > img {
+  width: $sidebar-width;
+  height: $sidebar-width;
+}
+
+
