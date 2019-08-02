@@ -23,4 +23,13 @@ app-album-list {
   height: $sidebar-width;
 }
 
+.main {
+  background-color: #2A2A2A;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
 
+.player {
+  height: 220px;
+}
