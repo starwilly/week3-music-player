@@ -12,4 +12,9 @@ export class PlayerViewComponent implements OnInit {
   ngOnInit() {
   }
 
+  value = 15;
+
+  onChange(value) {
+    console.log('value change', value);
+  }
 }

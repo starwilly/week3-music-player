@@ -1,0 +1,21 @@
+.bar {
+  background-color: #ccc;
+  height: 10px;
+  cursor: pointer;
+  padding-right: 20px;
+}
+
+.thumb {
+  position: absolute;
+  top: -5px;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  display: block;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.sliderWrapper {
+  position: relative;
+}

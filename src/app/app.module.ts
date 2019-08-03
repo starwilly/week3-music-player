@@ -7,6 +7,8 @@ import { PlayerViewComponent } from './views/player-view/player-view.component';
 import { AlbumListComponent } from './components/album-list/album-list.component';
 import { AlbumDetailComponent } from './components/albumn-detail/album-detail.component';
 import { PlayerComponent } from './components/player/player.component';
+import { SliderComponent } from './components/slider/slider.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -14,11 +16,13 @@ import { PlayerComponent } from './components/player/player.component';
     PlayerViewComponent,
     AlbumListComponent,
     AlbumDetailComponent,
-    PlayerComponent
+    PlayerComponent,
+    SliderComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

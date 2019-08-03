@@ -1,0 +1,11 @@
+<div class="bar"
+     (pan)="onSlide($event)"
+     (panstart)="onPanStart($event)"
+     (panend)="onPanEnd($event)"
+     (mouseenter)="onMouseEnter($event)"
+     (click)="onClick($event)"
+>
+  <div class="sliderWrapper" #sliderWrapper>
+    <span class="thumb" [ngStyle]="thumbStyles"></span>
+  </div>
+</div>
