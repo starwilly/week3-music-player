@@ -9,6 +9,7 @@ import { AlbumDetailComponent } from './components/albumn-detail/album-detail.co
 import { PlayerComponent } from './components/player/player.component';
 import { SliderComponent } from './components/slider/slider.component';
 import {FormsModule} from '@angular/forms';
+import { AlbumTrackListComponent } from './components/album-track-list/album-track-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {FormsModule} from '@angular/forms';
     AlbumListComponent,
     AlbumDetailComponent,
     PlayerComponent,
-    SliderComponent
+    SliderComponent,
+    AlbumTrackListComponent
   ],
   imports: [
     BrowserModule,

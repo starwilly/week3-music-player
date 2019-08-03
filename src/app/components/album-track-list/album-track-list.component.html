@@ -1,0 +1,6 @@
+<ul>
+  <li *ngFor="let track of tracks">
+    {{ track.name }} ( {{ track.duration }})
+    <button (click)="onPlay(track)">play</button>
+  </li>
+</ul>

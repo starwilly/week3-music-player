@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {TrackService} from '../../services/track.service';
+import {Observable} from 'rxjs';
+import {Track} from '../../models';
 
 @Component({
   selector: 'app-player-view',
@@ -7,14 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlayerViewComponent implements OnInit {
 
-  constructor() { }
+  audioList$: Observable<Track[]>;
+  playingTrack$: Observable<Track>;
+  playingDuration$: Observable<number>;
 
-  ngOnInit() {
+  constructor(
+    private trackService: TrackService
+  ) {
   }
 
-  value = 15;
+  ngOnInit() {
+    this.audioList$ = this.trackService.trackList$;
+    this.playingTrack$ = this.trackService.playingTrack$;
+    this.playingDuration$ = this.trackService.duration$;
+  }
 
-  onChange(value) {
-    console.log('value change', value);
+  onJump(time: number) {
+    this.trackService.jump(time);
+  }
+
+  onPlay(track: Track) {
+    this.trackService.play(track);
   }
 }

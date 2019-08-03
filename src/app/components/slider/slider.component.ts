@@ -17,6 +17,7 @@ export class SliderComponent implements OnInit, ControlValueAccessor {
 
   // private percent = 0.3;
   private sliderDimension: ClientRect | null = null;
+  private isSliding = false;
   @Input() min = 0;
   @Input() max = 100;
   private _value = 0;
@@ -27,9 +28,7 @@ export class SliderComponent implements OnInit, ControlValueAccessor {
   }
 
   set value(value: number) {
-    console.log('set value', value);
-    this._value = Math.min(Math.max(this.min, value), this.max);
-    this.propagateChange(value);
+    this._value = value;
   }
 
   @ViewChild('sliderWrapper', {static: true}) private slider: ElementRef;
@@ -61,9 +60,19 @@ export class SliderComponent implements OnInit, ControlValueAccessor {
     this.updateValueByPosition({x, y});
   }
 
+  onSlideStart(event) {
+    this.isSliding = true;
+  }
+
+  onSlideEnd(event) {
+    this.propagateChange(this.value);
+    this.isSliding = false;
+  }
+
   onClick(event: MouseEvent) {
     const {clientX: x, clientY: y} = event;
     this.updateValueByPosition({x, y});
+    this.propagateChange(this.value);
   }
 
   private updateValueByPosition(pos: { x: number, y: number }) {
@@ -86,7 +95,7 @@ export class SliderComponent implements OnInit, ControlValueAccessor {
   }
 
   writeValue(value: number): void {
-    if (value !== undefined) {
+    if (value !== undefined && !this.isSliding) {
       this.value = value;
     }
   }
