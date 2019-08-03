@@ -28,8 +28,15 @@ app-album-list {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  align-items: stretch;
+  position: relative;
 }
 
 .player {
   height: 220px;
+}
+
+app-player {
+  position: absolute;
+  bottom: 0;
 }
