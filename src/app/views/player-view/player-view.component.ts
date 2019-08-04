@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {TrackService} from '../../services/track.service';
 import {Observable} from 'rxjs';
-import {Track} from '../../models';
+import {PlayMode, Track} from '../../models';
 
 @Component({
   selector: 'app-player-view',
@@ -11,8 +11,11 @@ import {Track} from '../../models';
 export class PlayerViewComponent implements OnInit {
 
   audioList$: Observable<Track[]>;
-  playingTrack$: Observable<Track>;
+  currentTrack$: Observable<Track>;
   playingDuration$: Observable<number>;
+  mode$: Observable<PlayMode>;
+  isShuffle$: Observable<boolean>;
+  isPlaying$: Observable<boolean>;
 
   constructor(
     private trackService: TrackService
@@ -21,15 +24,42 @@ export class PlayerViewComponent implements OnInit {
 
   ngOnInit() {
     this.audioList$ = this.trackService.trackList$;
-    this.playingTrack$ = this.trackService.playingTrack$;
+    this.currentTrack$ = this.trackService.currentTrack$;
     this.playingDuration$ = this.trackService.duration$;
+    this.mode$ = this.trackService.playMode$;
+    this.isShuffle$ = this.trackService.isShuffle$;
+    this.isPlaying$ = this.trackService.isPlaying$;
   }
 
   onJump(time: number) {
     this.trackService.jump(time);
   }
 
-  onPlay(track: Track) {
+  onPlayTrack(track: Track) {
     this.trackService.play(track);
+  }
+
+  onPlayClick() {
+    this.trackService.play(null);
+  }
+
+  onPauseClick() {
+    this.trackService.pause();
+  }
+
+  onNextClick() {
+    this.trackService.nextTrack();
+  }
+
+  onPrevClick() {
+    this.trackService.prevTrack();
+  }
+
+  onModeChange() {
+    this.trackService.nextMode();
+  }
+
+  onToggleShuffle() {
+    this.trackService.toggleShuffle();
   }
 }

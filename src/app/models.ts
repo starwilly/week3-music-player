@@ -4,3 +4,9 @@ export interface Track {
   filename: string;
   duration: number;
 }
+
+export enum PlayMode {
+  repeatTrack,
+  repeatPlayList,
+  noRepeat
+}

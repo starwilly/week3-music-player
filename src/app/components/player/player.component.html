@@ -1,7 +1,29 @@
 <div class="track-controls" (pan)="onPan($event)">
-  <button class="btn"><i class="fas fa-random"></i></button>
-  <button class="btn"><i class="fas fa-step-backward"></i></button>
-  <button class="btn btn--lg btn--round"><i class="fas fa-play"></i></button>
-  <button class="btn"><i class="fas fa-step-forward"></i></button>
-  <button class="btn"><i class="fas fa-repeat"></i></button>
+  <button class="btn"
+          [ngClass]="{'is-active': isShuffle}"
+          (click)="toggleShuffle.emit()"
+  >
+    <i class="fas fa-random"></i>
+  </button>
+  <button class="btn" (click)="prevClick.emit()"><i class="fas fa-step-backward"></i></button>
+  <button *ngIf="isPlaying; else playBtn" class="btn btn--lg btn--round"
+          (click)="pauseClick.emit()"
+  >
+    <i class="fas fa-pause"></i>
+  </button>
+  <ng-template #playBtn>
+    <button class="btn btn--lg btn--round play-btn"
+            (click)="playClick.emit()">
+      <i class="fas fa-play"></i>
+    </button>
+  </ng-template>
+  <button class="btn" (click)="nextClick.emit()"><i class="fas fa-step-forward"></i></button>
+  <button class="btn mode-btn" [ngClass]="{ 'is-active': mode !== PlayMode.noRepeat }"
+          (click)="modeChange.emit()">
+    <i class="fas"
+       [ngClass]="{
+        'fa-repeat': mode !== PlayMode.repeatTrack,
+        'fa-repeat-1': mode === PlayMode.repeatTrack
+       }"></i>
+  </button>
 </div>

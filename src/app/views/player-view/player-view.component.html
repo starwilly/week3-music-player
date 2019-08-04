@@ -7,13 +7,25 @@
 </div>
 <div class="main">
   <app-albumn-detail></app-albumn-detail>
-  <app-album-track-list [tracks]="audioList$ | async" (playTrack)="onPlay($event)"></app-album-track-list>
-  <app-slider *ngIf="playingTrack$ | async as track; else noPlayingSlider"
+  <app-album-track-list [tracks]="audioList$ | async" (playTrack)="onPlayTrack($event)"></app-album-track-list>
+  <app-slider *ngIf="currentTrack$ | async as track; else noPlayingSlider"
               [max]="track.duration"
               [ngModel]="playingDuration$ | async"
               (ngModelChange)="onJump($event)"> </app-slider>
+  Track: {{ currentTrack$ | async | json}}
+  IsPlaying: {{ isPlaying$ | async}}
   <ng-template #noPlayingSlider>
     <app-slider></app-slider>
   </ng-template>
-  <app-player></app-player>
+  <app-player
+    [isPlaying]="isPlaying$ | async"
+    [isShuffle]="isShuffle$ | async"
+    [mode]="mode$ | async"
+    (modeChange)="onModeChange()"
+    (toggleShuffle)="onToggleShuffle()"
+    (playClick)="onPlayClick()"
+    (pauseClick)="onPauseClick()"
+    (nextClick)="onNextClick()"
+    (prevClick)="onPrevClick()"
+  ></app-player>
 </div>
