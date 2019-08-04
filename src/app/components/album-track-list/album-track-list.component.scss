@@ -1,0 +1,35 @@
+.track {
+  display: flex;
+  background-color: #222222;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+
+  &.is-active {
+    background-image: linear-gradient(270deg, rgba(255,168,131,0.3) 0%, rgba(57,39,255,0.3) 100%);
+  }
+
+  &:nth-child(even) {
+    background-color: #2A2A2A;
+  }
+  & > a {
+    color: white;
+  }
+}
+
+.track-number {
+  width: 2rem;
+  text-align: right;
+  color: white;
+}
+
+.track-name {
+  flex-grow: 1;
+  padding: 0 2rem;
+}
+
+.track-duration {
+  padding: 0 3rem;
+}
+
+

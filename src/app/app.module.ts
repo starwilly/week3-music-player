@@ -19,7 +19,7 @@ import { AlbumTrackListComponent } from './components/album-track-list/album-tra
     AlbumDetailComponent,
     PlayerComponent,
     SliderComponent,
-    AlbumTrackListComponent
+    AlbumTrackListComponent,
   ],
   imports: [
     BrowserModule,

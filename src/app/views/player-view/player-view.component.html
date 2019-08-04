@@ -7,7 +7,11 @@
 </div>
 <div class="main">
   <app-albumn-detail></app-albumn-detail>
-  <app-album-track-list [tracks]="audioList$ | async" (playTrack)="onPlayTrack($event)"></app-album-track-list>
+  <app-album-track-list [tracks]="audioList$ | async"
+                        [currentTrack]="currentTrack$ | async"
+                        [isPlaying]="isPlaying$ | async"
+                        (playTrack)="onPlayTrack($event)"
+  ></app-album-track-list>
   <app-player
     [isPlaying]="isPlaying$ | async"
     [isShuffle]="isShuffle$ | async"

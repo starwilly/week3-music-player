@@ -10,9 +10,13 @@ export class AlbumTrackListComponent implements OnInit {
 
 
   @Input() tracks: Track[];
+  @Input() currentTrack: Track;
+  @Input() isPlaying: boolean;
+
   @Output() playTrack = new EventEmitter<Track>();
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }

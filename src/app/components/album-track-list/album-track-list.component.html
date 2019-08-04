@@ -1,6 +1,13 @@
-<ul>
-  <li *ngFor="let track of tracks">
-    {{ track.name }} ( {{ track.duration }})
-    <button (click)="onPlay(track)">play</button>
+<ul class="g-list g-list--hover-scale track-list">
+  <li *ngFor="let track of tracks; index as i"
+      class="track g-list__item"
+      [ngClass]="{'is-active': track === currentTrack && isPlaying}"
+      (click)="onPlay(track)"
+  >
+    <span class="g-list__item-content">
+      <span class="track-number"> {{ i + 1 }}</span>
+      <span class="track-name">{{ track.name }}</span>
+      <span class="track-duration">{{ track.duration * 1000 | date: 'mm:ss' : '+0000' }}</span>
+    </span>
   </li>
 </ul>

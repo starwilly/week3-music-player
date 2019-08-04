@@ -19,21 +19,46 @@ html, body {
 }
 
 .g-list {
-  color: #868686;
+  color: white;
   list-style: none;
   padding: 0;
   margin: 0;
 
-  > li > a {
-    color: #868686;
-    text-decoration: none;
-    padding: 12px 26px;
-    display: block;
+  .g-list__item {
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+
+    &.is-active {
+      background-image: linear-gradient(270deg, rgba(255, 168, 131, 0.2) 0%, rgba(57, 39, 255, 0.2) 100%);
+      color: white;
+      cursor: default;
+    }
+
+    &:hover, &:hover.is-active {
+      background-image: linear-gradient(270deg, rgba(255, 168, 131, 0.8) 0%, rgba(57, 39, 255, 0.8) 100%);
+      color: white;
+      box-shadow: 0 1px 5px rgba(0, 0, 0, 0.46);
+      transition: all 0.2s ease-in;
+    }
   }
 
-  > li.active > a {
-    color: white;
-    background-image: linear-gradient(270deg, rgba(255, 168, 131, 0.2) 0%, rgba(57, 39, 255, 0.2) 100%);
+  .g-list__item-content {
+    text-decoration: none;
+    padding: 12px;
+    display: flex;
+    width: 100%;
+  }
+
+}
+
+.g-list--hover-scale {
+  .g-list__item {
+    transition: all 0.2s ease-out;
+
+    &:hover, &:hover.is-active {
+      transform: scale(1.01);
+      transition: all 0.2s ease-in;
+    }
   }
 }
 
