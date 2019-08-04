@@ -48,12 +48,21 @@ export class SliderComponent implements OnInit, ControlValueAccessor {
     return this.slider ? (this.slider.nativeElement as HTMLElement).getBoundingClientRect() : null;
   }
 
+  get percent(): number {
+    return (this.value - this.min) / (this.max - this.min);
+  }
+
   get thumbStyles(): { [key: string]: string } {
-    const percent = (this.value - this.min) / (this.max - this.min);
     return {
-      left: `${percent * 100}%`
+      left: `${this.percent * 100}%`
     };
   }
+  get progressStyle(): { [key: string]: string } {
+    return {
+      width: `${this.percent * 100}%`
+    };
+  }
+
 
   onSlide(event) {
     const {x, y} = event.center;
@@ -76,7 +85,7 @@ export class SliderComponent implements OnInit, ControlValueAccessor {
   }
 
   private updateValueByPosition(pos: { x: number, y: number }) {
-    const {left, width } = this.sliderDimension;
+    const {left, width} = this.sliderDimension;
     const x = Math.max(left, Math.min(pos.x, left + width));
     this.value = (x - left) / width * (this.max - this.min) + this.min;
   }

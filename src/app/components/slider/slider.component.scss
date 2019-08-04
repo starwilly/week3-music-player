@@ -1,15 +1,19 @@
+$slider-height: 5px;
+$thumb-size: 10px;
+
 .bar {
-  background-color: #ccc;
-  height: 10px;
+  background-color: rgba(54,54,54,0.8);
+  height: $slider-height;
   cursor: pointer;
-  padding-right: 20px;
+  padding-right: $thumb-size;
+  position: relative;
 }
 
 .thumb {
   position: absolute;
-  top: -5px;
-  width: 20px;
-  height: 20px;
+  top: ($slider-height - $thumb-size ) / 2;
+  width: $thumb-size;
+  height: $thumb-size;
   background-color: white;
   display: block;
   border-radius: 50%;
@@ -18,4 +22,10 @@
 
 .sliderWrapper {
   position: relative;
+}
+
+.progress {
+  position: absolute;
+  background-image: linear-gradient(270deg, #FFA883 0%, #3927FF 100%);
+  height: 100%;
 }

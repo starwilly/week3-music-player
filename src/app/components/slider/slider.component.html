@@ -5,6 +5,7 @@
      (mouseenter)="onMouseEnter($event)"
      (click)="onClick($event)"
 >
+  <div class="progress" [ngStyle]="progressStyle"></div>
   <div class="sliderWrapper" #sliderWrapper>
     <span class="thumb" [ngStyle]="thumbStyles"></span>
   </div>
