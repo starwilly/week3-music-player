@@ -1,10 +1,15 @@
 :host {
   background-color: #1D1D1D;
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 75px;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+}
+
+app-slider {
+  width: 100%;
 }
 
 .btn {
@@ -39,6 +44,7 @@
 .track-controls {
   display: flex;
   align-items: center;
+  margin-top: 10px;
   .btn {
     margin: 0 10px;
   }
