@@ -1,5 +1,5 @@
 <app-slider [max]="duration" [ngModel]="currentTime"  (ngModelChange)="jump.emit($event)"></app-slider>
-<div class="track-controls" (pan)="onPan($event)">
+<div class="track-controls">
   <button class="btn"
           [ngClass]="{'is-active': isShuffle}"
           (click)="toggleShuffle.emit()"
