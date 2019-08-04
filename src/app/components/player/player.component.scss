@@ -19,11 +19,16 @@ app-slider {
   color: #474747;
   cursor: pointer;
   outline: none;
+  transition: all 0.3s ease-out;
   &:hover {
     color: white;
+    transition: all 0.3s ease-in;
   }
   &.is-active {
     color: #6241E6;
+  }
+  &:active {
+    transform: scale(1.1);
   }
 }
 
@@ -32,8 +37,10 @@ app-slider {
   width: 42px;
   height: 42px;
   border-radius: 50%;
+  transition: border-color 0.3s ease-out;
   &:hover {
     border-color: white;
+    transition: border-color 0.3s ease-out;
   }
 }
 

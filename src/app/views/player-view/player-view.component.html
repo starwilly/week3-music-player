@@ -6,7 +6,9 @@
   </div>
 </div>
 <div class="main">
-  <app-albumn-detail></app-albumn-detail>
+  <app-albumn-detail (playClick)="onPlayClick()"
+                     (pauseClick)="onPauseClick()"
+                     [isPlaying]="isPlaying$ | async"></app-albumn-detail>
   <app-album-track-list [tracks]="audioList$ | async"
                         [currentTrack]="currentTrack$ | async"
                         [isPlaying]="isPlaying$ | async"

@@ -50,7 +50,7 @@
   align-items: flex-end;
 }
 
-.play-btn {
+.btn {
   width: 90px;
   height: 90px;
   background-image: linear-gradient(227deg, #FFA883 0%, #3927FF 100%);
@@ -59,10 +59,24 @@
   box-shadow: 0 2px 8px 0 rgba(0,0,0,0.50);
   cursor: pointer;
   font-size: 2rem;
-  padding-left: 15px;
   color: white;
+  outline: none;
+  transition: all ease-out 0.1s;
+
   &:hover {
     background-image: linear-gradient(48deg, #FFA883 0%, #3927FF 100%);
+    transform: scale(1.1);
+    transition: all ease-in 0.1s;
+  }
+
+  &:active {
+    transform: scale(1);
+    transition: all ease-in 0.1s;
   }
 }
+
+.play-btn {
+  padding-left: 15px;
+}
+
 

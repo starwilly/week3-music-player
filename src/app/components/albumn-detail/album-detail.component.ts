@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-albumn-detail',
@@ -7,7 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AlbumDetailComponent implements OnInit {
 
-  constructor() { }
+  @Input() isPlaying: boolean;
+
+  @Output() playClick = new EventEmitter<void>();
+  @Output() pauseClick = new EventEmitter<void>();
+
+  constructor() {
+  }
 
   ngOnInit() {
   }

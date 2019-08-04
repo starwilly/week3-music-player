@@ -12,7 +12,16 @@
       </div>
     </div>
     <div class="actions">
-      <button class="play-btn"><i class="fas fa-play"></i></button>
+      <button *ngIf="isPlaying; else playBtn"
+              class="btn pause-btn"
+              (click)="pauseClick.emit()">
+        <i class="fas fa-pause"></i>
+      </button>
+      <ng-template #playBtn>
+        <button class="btn play-btn" (click)="playClick.emit()">
+          <i class="fas fa-play"></i>
+        </button>
+      </ng-template>
     </div>
   </div>
 </div>
