@@ -17,7 +17,7 @@ export class SliderComponent implements OnInit, ControlValueAccessor {
 
   // private percent = 0.3;
   private sliderDimension: ClientRect | null = null;
-  private isSliding = false;
+  isSliding = false;
   @Input() min = 0;
   @Input() max = 100;
   private _value = 0;

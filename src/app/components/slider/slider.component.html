@@ -1,4 +1,5 @@
 <div class="bar"
+     [ngClass]="{'is-sliding': isSliding}"
      (pan)="onSlide($event)"
      (panstart)="onSlideStart($event)"
      (panend)="onSlideEnd($event)"
